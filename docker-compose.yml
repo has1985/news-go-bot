@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  postgres_db:
+    image: postgres:16.1
+    hostname: postgres_db_bot
+    container_name: postgres_db_bot
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: news-go-bot
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  migrate-postgres-db:
+    image: infoblox/migrate:latest
+    container_name: migrate-postgres-db-bot
+    volumes:
+      - ./migrations:/migrations
+    depends_on:
+      -   postgres_db
+    restart: on-failure:10
+    command: --path=/migrations/ --verbose --database.driver=postgres --database.address=postgres_db:5435 --database.name=news-go-bot --database.user=postgres --database.password=postgres --database.ssl=disable up
