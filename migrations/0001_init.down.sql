@@ -1,0 +1,7 @@
+BEGIN;
+
+DROP TABLE IF EXISTS articles;
+
+DROP TABLE IF EXISTS sources;
+
+COMMIT;
