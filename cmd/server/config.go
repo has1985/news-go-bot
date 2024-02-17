@@ -15,8 +15,8 @@ const (
 	// Logging
 	defaultLoggingLevel = "debug"
 
-	defaultTelegramBotToken     = "6845544854:AAFIIdeLVjFG7BEgtKyUKrsFLjGnBkSXdBA"
-	defaultTelegramChannelID    = -1002090424799
+	defaultTelegramBotToken     = ""
+	defaultTelegramChannelID    = 1
 	defaultDatabaseDSN          = "postgres://postgres:postgres@localhost:5435/news-go-bot?sslmode=disable"
 	defaultFetchInterval        = time.Minute * 10
 	defaultNotificationInterval = time.Minute * 1
